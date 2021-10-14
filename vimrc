@@ -22,6 +22,8 @@ Plug 'neoclide/coc.nvim', { 'branch' : 'release' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
+" Make sure prettier is globally installed: npm i -g prettier
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
 let g:airline_powerline_fonts = 1
@@ -40,10 +42,10 @@ highlight LineNr ctermfg=DarkGrey
 
 " NERDTree shortcuts
 nnoremap <leader>t :NERDTreeToggle<CR>
-nnoremap <leader>l :NERDTreeFind<CR>
+" nnoremap <leader>l :NERDTreeFind<CR>
 
 " FZF shortcuts
-nnoremap <leader>p :FZF<CR>
+nnoremap <leader>l :FZF<CR>
 
 " Rg shortcuts
 nnoremap <leader>f :Rg<CR>
@@ -56,6 +58,20 @@ let g:NERDSpaceDelims = 1
 
 " Support macos clipboard
 set clipboard=unnamed
+
+" Set the title of the Terminal to the currently open file
+function! SetTerminalTitle()
+  let titleString = expand('%:t')
+  if len(titleString) > 0
+    let &titlestring = expand('%:t')
+    " this is the format iTerm2 expects when setting the window title
+    let args = "\033];".&titlestring."\007"
+    let cmd = 'silent !echo -e "'.args.'"'
+    execute cmd
+    redraw!
+  endif
+endfunction
+autocmd BufEnter * call SetTerminalTitle()
 
 " Typescript config
 
