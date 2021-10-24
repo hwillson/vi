@@ -24,13 +24,17 @@ Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
 " Make sure prettier is globally installed: npm i -g prettier
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'aserebryakov/vim-todo-lists'
 call plug#end()
 
 let g:airline_powerline_fonts = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+let NERDTreeShowHidden=1
+" Open on right
+let g:NERDTreeWinPos = "right"
 
 " set rtp+=/usr/local/opt/fzf
 
@@ -42,7 +46,7 @@ highlight LineNr ctermfg=DarkGrey
 
 " NERDTree shortcuts
 nnoremap <leader>t :NERDTreeToggle<CR>
-" nnoremap <leader>l :NERDTreeFind<CR>
+nnoremap <leader>v :NERDTreeFind<CR>
 
 " FZF shortcuts
 nnoremap <leader>l :FZF<CR>
@@ -51,7 +55,7 @@ nnoremap <leader>l :FZF<CR>
 nnoremap <leader>f :Rg<CR>
 
 " Remove trailing whitespace on save
-"autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e
 
 " NERD Commenter config
 let g:NERDSpaceDelims = 1
