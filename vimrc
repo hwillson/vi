@@ -9,6 +9,7 @@ set softtabstop=2
 set shiftwidth=2
 :setlocal spell
 set re=0
+set shortmess=I
 
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
@@ -25,6 +26,7 @@ Plug 'preservim/nerdcommenter'
 " Make sure prettier is globally installed: npm i -g prettier
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'aserebryakov/vim-todo-lists'
+Plug 'metakirby5/codi.vim'
 call plug#end()
 
 let g:airline_powerline_fonts = 1
