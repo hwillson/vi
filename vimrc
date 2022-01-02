@@ -7,9 +7,11 @@ set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-:setlocal spell
+setlocal spell
 set re=0
 set shortmess=I
+set foldmethod=syntax
+set nofoldenable
 
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
@@ -37,6 +39,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 let NERDTreeShowHidden=1
 " Open on right
 let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinSize=40
 
 " set rtp+=/usr/local/opt/fzf
 
@@ -48,7 +51,7 @@ highlight LineNr ctermfg=DarkGrey
 
 " NERDTree shortcuts
 nnoremap <leader>t :NERDTreeToggle<CR>
-nnoremap <leader>v :NERDTreeFind<CR>
+nnoremap <leader>r :NERDTreeFind<CR>
 
 " FZF shortcuts
 nnoremap <leader>l :FZF<CR>
