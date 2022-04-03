@@ -138,3 +138,35 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
+
+" Adjust tabs to skip showing nerdtree (and other) buffer names, and instead
+" show last open file name.
+function! Tabline()
+  let s = ''
+  for i in range(tabpagenr('$'))
+    let tab = i + 1
+    let buflist = tabpagebuflist(tab)
+    let bufignore = ['nerdtree', 'tagbar', 'codi', 'help']
+    for b in buflist
+      let buftype = getbufvar(b, "&filetype")
+      if index(bufignore, buftype)==-1 "index returns -1 if the item is not contained in the list
+        let bufnr = b
+        break
+      elseif b==buflist[-1]
+        let bufnr = b
+      endif
+    endfor
+    let bufname = bufname(bufnr)
+    let bufmodified = getbufvar(bufnr, "&mod")
+    let s .= '%' . tab . 'T'
+    let s .= (tab == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
+    let s .= ' ' . tab .':'
+    let s .= (bufname != '' ? '['. fnamemodify(bufname, ':t') . '] ' : '[No Name] ')
+    if bufmodified
+      let s .= '[+] '
+    endif
+  endfor
+  let s .= '%#TabLineFill#'
+  return s
+endfunction
+set tabline=%!Tabline()
