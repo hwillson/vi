@@ -25,7 +25,7 @@ Plug 'neoclide/coc.nvim', { 'branch' : 'release' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
-" Make sure prettier is globally installed: npm i -g prettier
+" Make sure prettier is globally installed: npm i -g prettier; npm i -g @prettier/plugin-php
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'aserebryakov/vim-todo-lists'
 Plug 'metakirby5/codi.vim'
@@ -170,3 +170,6 @@ function! Tabline()
   return s
 endfunction
 set tabline=%!Tabline()
+
+" Needed for PHP prettier
+autocmd BufWritePre *.php PrettierAsync
