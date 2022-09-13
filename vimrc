@@ -7,7 +7,7 @@ set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-setlocal spell
+"set spell
 set re=0
 set shortmess=I
 set foldmethod=syntax
@@ -48,6 +48,10 @@ syntax on
 set number
 highlight Normal ctermbg=None
 highlight LineNr ctermfg=DarkGrey
+
+" Toggle spelling
+nnoremap <leader>; :set spell<CR>
+nnoremap <leader>' :set spell!<CR>
 
 " NERDTree shortcuts
 nnoremap <leader>t :NERDTreeToggle<CR>
@@ -171,5 +175,5 @@ function! Tabline()
 endfunction
 set tabline=%!Tabline()
 
-" Needed for PHP prettier
-autocmd BufWritePre *.php PrettierAsync
+" Autoformat PHP via prettier on file save
+"autocmd BufWritePre *.php PrettierAsync
