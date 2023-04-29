@@ -29,6 +29,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'aserebryakov/vim-todo-lists'
 Plug 'metakirby5/codi.vim'
+Plug 'joshdick/onedark.vim'
 call plug#end()
 
 let g:airline_powerline_fonts = 1
@@ -177,3 +178,6 @@ set tabline=%!Tabline()
 
 " Autoformat PHP via prettier on file save
 "autocmd BufWritePre *.php PrettierAsync
+
+" Support ctrl-c into clipboard on windows (remove this everywhere else)
+vnoremap <C-c> y:!echo <C-r>=escape(substitute(shellescape(getreg('"')), '\n', '\r', 'g'), '%!')<CR> <Bar> clip.exe<CR><CR>
