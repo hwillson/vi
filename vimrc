@@ -179,5 +179,5 @@ set tabline=%!Tabline()
 " Autoformat PHP via prettier on file save
 "autocmd BufWritePre *.php PrettierAsync
 
-" Support ctrl-c into clipboard on windows (remove this everywhere else)
-vnoremap <C-c> y:!echo <C-r>=escape(substitute(shellescape(getreg('"')), '\n', '\r', 'g'), '%!')<CR> <Bar> clip.exe<CR><CR>
+" Yank into Windows clipboard (remove if not using Windows)
+autocmd TextYankPost * if v:event.operator ==# 'y' | call system('/mnt/c/Windows/System32/clip.exe',@0) | endif
