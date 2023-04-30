@@ -22,8 +22,13 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ```
 sudo apt install ripgrep
 ```
+6. Make sure prettier is installed globally:
 
-6. If using WSL2 (Windows), install powerline fonts:
+```
+npm i -g prettier
+```
+
+7. If using WSL2 (Windows), install powerline fonts:
 
 a. [Download](https://github.com/powerline/fonts/blob/master/DejaVuSansMono/DejaVu%20Sans%20Mono%20for%20Powerline.ttf) the required .ttf file from the powerline github repo.
 b. In Windows, open the file by double-clicking on it. It will show two options: Print and Install. Choose Install.
