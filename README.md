@@ -20,8 +20,15 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 5. Install ripgrep:
 
 ```
+brew install ripgrep
+```
+
+or
+
+```
 sudo apt install ripgrep
 ```
+
 6. Make sure prettier is installed globally:
 
 ```
