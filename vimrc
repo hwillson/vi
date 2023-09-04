@@ -26,7 +26,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
 " Make sure prettier is globally installed: npm i -g prettier; npm i -g @prettier/plugin-php
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'aserebryakov/vim-todo-lists'
 Plug 'metakirby5/codi.vim'
 Plug 'joshdick/onedark.vim'
@@ -41,6 +41,9 @@ let NERDTreeShowHidden=1
 " Open on right
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeWinSize=40
+
+set wildignore+=*.swp,*.DS_Store
+let NERDTreeRespectWildIgnore=1
 
 " set rtp+=/usr/local/opt/fzf
 
