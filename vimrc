@@ -27,7 +27,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
 " Make sure prettier is globally installed: npm i -g prettier; npm i -g @prettier/plugin-php
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
-Plug 'aserebryakov/vim-todo-lists'
+"Plug 'aserebryakov/vim-todo-lists'
 Plug 'metakirby5/codi.vim'
 Plug 'joshdick/onedark.vim'
 call plug#end()
